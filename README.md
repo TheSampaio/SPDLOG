@@ -1,4 +1,4 @@
-# spdlog
+# SPDLOG
 
  
 [![ci](https://github.com/gabime/spdlog/actions/workflows/linux.yml/badge.svg)](https://github.com/gabime/spdlog/actions/workflows/linux.yml)&nbsp;
