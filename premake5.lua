@@ -1,17 +1,4 @@
-workspace "spdlog"
-    configurations { "Debug", "Release" }
-    architecture "x86_64"
-
-    location "build"
-    
-    -- Set default build type to Release
-    filter { "configurations:Release" }
-        optimize "On"
-
-    filter { "configurations:Debug" }
-        symbols "On"
-
-project "spdlog"
+project "SPDLOG"
     kind "StaticLib"
     language "C++"
     cppdialect "C++11"
@@ -19,8 +6,8 @@ project "spdlog"
 
     location "build"
 
-    targetdir ("build/bin/" .. "%{cfg.buildcfg}")
-    objdir ("build/obj/" .. "%{cfg.buildcfg}")
+    targetdir "build/bin/%{cfg.buildcfg}"
+    objdir "build/obj/%{cfg.buildcfg}"
 
     files { "source/**.cpp", "include/**.h" }
     includedirs { "include" }
@@ -29,6 +16,10 @@ project "spdlog"
     filter "system:windows"
         buildoptions { "/utf-8" }
         defines { "SPDLOG_COMPILED_LIB" }
+
+    filter "platforms:x64"
+        buildoptions { "/utf-8" }
+
 
     filter "system:linux"
         defines { "SPDLOG_CLOCK_COARSE" }
