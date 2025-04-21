@@ -3,11 +3,10 @@ project "spdlog"
     language "C++"
     cppdialect "C++11"
     staticruntime "On"
-
     location "build"
 
-    targetdir "build/bin/%{cfg.buildcfg}"
-    objdir "build/obj/%{cfg.buildcfg}"
+    targetdir (".Out/Bin/" .. output_dir .. "%{prj.name}")
+    objdir    (".Out/Obj/" .. output_dir .. "%{prj.name}")
 
     files { "source/**.cpp", "include/**.h" }
     includedirs { "include" }
